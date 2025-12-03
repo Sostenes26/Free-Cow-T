@@ -9,7 +9,9 @@ public class Timer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        int minutos = Mathf.FloorToInt(tempoRestante / 60);
+        int segundos = Mathf.FloorToInt(tempoRestante % 60);
+        textoTimer.text = string.Format("{0:00}:{1:00}", minutos, segundos);
     }
     // Update is called once per frame
     void Update()
@@ -23,6 +25,7 @@ public class Timer : MonoBehaviour
             tempoRestante = 0;
             //GameOver();
             textoTimer.color = Color.red;
+            Time.timeScale = 0;
         }
 
 
